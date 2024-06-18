@@ -124,6 +124,11 @@ The tests cover the following areas:
 
 Please note that you'll need to update the environment variables in Postman to match your local setup (e.g., `base_url`, `user_token`).
 
+## Notes
+
+All controllers notes for easier understanding : [VideoTube-Backend-Notes.pdf](https://github.com/user-attachments/files/15880427/VideoTube-Backend-Notes.pdf)
+
+
 ## License
 
 This project is licensed under the Chai-aur-code license.
