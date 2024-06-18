@@ -9,6 +9,7 @@ This is learning project for backend development.
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [License](#license)
+- [Notes](#notes)
 - [Questions](#questions)
 
 ## Description
