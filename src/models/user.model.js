@@ -49,6 +49,7 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+// This code ensures that every time a document (likely a user document) with the userSchema is saved, it checks if the password has been modified. If so, it hashes the password using bcrypt before proceeding with the save operation. This is a common practice to ensure passwords are securely stored in a hashed format rather than in plain text.
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
