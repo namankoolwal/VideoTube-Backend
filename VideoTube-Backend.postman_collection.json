@@ -1,0 +1,1224 @@
+{
+	"info": {
+		"_postman_id": "a9f69593-e801-4512-bf41-1a5ac923583b",
+		"name": "VideoTube-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32161713",
+		"_collection_link": "https://winter-trinity-649623.postman.co/workspace/Chai-Aur-Code~351f8ab9-ab45-47f8-a14f-c0fe26166758/collection/32161713-a9f69593-e801-4512-bf41-1a5ac923583b?action=share&source=collection_link&creator=32161713"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{server}}/users/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						},
+						"description": "## Register User\n\nThis endpoint is used to register a new user.\n\n### Request Body\n\n- `fullname` (text): The full name of the user.\n- `email` (text): The email address of the user.\n- `password` (text): The password for the user account.\n- `username` (text): The username chosen by the user.\n- `avatar` (file): The avatar image for the user.\n- `coverimage` (file): The cover image for the user profile.\n    \n\n### Response\n\n- Status: 201\n- Content-Type: application/json\n    \n\n#### Response Body\n\n``` json\n{\n    \"statusCode\": 0,\n    \"data\": {\n        \"_id\": \"\",\n        \"username\": \"\",\n        \"email\": \"\",\n        \"fullname\": \"\",\n        \"avatar\": \"\",\n        \"coverimage\": \"\",\n        \"watchhistory\": [],\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\",\n        \"__v\": 0\n    },\n    \"message\": \"\",\n    \"success\": true\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"email\": \"mervin.cole76@yahoo.com\",\r\n//     \"password\": \"123456789\"\r\n// }\r\n\r\n\r\n{\r\n    \"email\": \"leann_muller@yahoo.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/logout",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/refresh-token",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurrentUserProfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/users/current-user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"current-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"123456789\",\r\n    \"newPassword\" : \"987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/change-password",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserDetails-fullName,Email",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullname\" : \"namankoolwal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/update-details",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"update-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "avatarUpdate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1eefd712-1647-4eb0-9c10-51a0c946bc87"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/avatar-update",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"avatar-update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "coverimageUpdate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coverimage",
+									"type": "file",
+									"src": "/C:/Users/user/Documents/AAdhar/papa-photo.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/coverimage-update",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"coverimage-update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "watchHistory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/users/history",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserChannelProfile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/users/channel/junior.hegmann64",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"channel",
+								"junior.hegmann64"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "toggleSubscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/c/6624fe3e5c1a224fd27a7fe0",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"c",
+								"6624fe3e5c1a224fd27a7fe0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserChannelSubscribers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/u/66211fd44c8b796f2f86a72f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"u",
+								"66211fd44c8b796f2f86a72f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubscribedChannelsTo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/c/66211fd44c8b796f2f86a72f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"c",
+								"66211fd44c8b796f2f86a72f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "publishAVideo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "demo title two",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "demo description two",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "postman-cloud:///1ef03d09-7333-4090-92cd-ac7d950ec03e"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eefb2e0-30a2-4d10-a9b1-2d89ad76de02"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVideoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/videos/665b34ca0f17148e5a3ec429",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"665b34ca0f17148e5a3ec429"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVideo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eefb2e0-30a2-4d10-a9b1-2d89ad76de02"
+								},
+								{
+									"key": "title",
+									"value": "update title one",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos/665ad7a28047cef4875deec2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"665ad7a28047cef4875deec2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "togglePublishStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "updated title 1",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/Saved Pictures/twitter/android-1.png"
+								},
+								{
+									"key": "description",
+									"value": "update description 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos/toggle/publish/665b34ca0f17148e5a3ec429",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"toggle",
+								"publish",
+								"665b34ca0f17148e5a3ec429"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVideo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "updated title 1",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/user/Pictures/Saved Pictures/twitter/android-1.png"
+								},
+								{
+									"key": "description",
+									"value": "update description 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos/665adcf6b92560d5474e64d0",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"665adcf6b92560d5474e64d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllVideos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "demo title two",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "demo description two",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "postman-cloud:///1ef03d09-7333-4090-92cd-ac7d950ec03e"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eefb2e0-30a2-4d10-a9b1-2d89ad76de02"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos?userId=66211fd44c8b796f2f86a72f&query=two&page=1&limit=2&sortType=desc&sortBy=createdAt",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "66211fd44c8b796f2f86a72f"
+								},
+								{
+									"key": "query",
+									"value": "two"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "sortType",
+									"value": "desc"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HealthCheck",
+			"item": [
+				{
+					"name": "healthCheck",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "demo title two",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "postman-cloud:///1ef03d09-7333-4090-92cd-ac7d950ec03e"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eefb2e0-30a2-4d10-a9b1-2d89ad76de02"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/healthcheck",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"healthcheck"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "addComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"content\" : \"video 2 third comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/665b3e710ae4caec78c33f3e",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"665b3e710ae4caec78c33f3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"content\" : \"first great comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/c/6662c6b43d73a4c01e3cd75c",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"c",
+								"6662c6b43d73a4c01e3cd75c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"content\" : \"i am again great comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/c/6662d06023d33cb28e2030b7",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"c",
+								"6662d06023d33cb28e2030b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVideoComments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"content\" : \"video 2 third comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/6662c1dbcf1094186c40ab6f?page=1&limit=5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"6662c1dbcf1094186c40ab6f"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Playlist",
+			"item": [
+				{
+					"name": "createPlaylist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "fourth playlist",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "fourth playlist description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/playlist",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserPlaylists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/user/66211fd44c8b796f2f86a72f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"user",
+								"66211fd44c8b796f2f86a72f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlaylistById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/666af022afbc26ae9c09f06f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"666af022afbc26ae9c09f06f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addVideoToPlaylist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/add/6662c1dbcf1094186c40ab6f/666af022afbc26ae9c09f06f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"add",
+								"6662c1dbcf1094186c40ab6f",
+								"666af022afbc26ae9c09f06f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeVideoFromPlaylist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/remove/665b34ca0f17148e5a3ec429/666af022afbc26ae9c09f06f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"remove",
+								"665b34ca0f17148e5a3ec429",
+								"666af022afbc26ae9c09f06f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePlaylist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Third playlist",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "third playlist description",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/playlist/666bf63a823043b856d9d7d3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"666bf63a823043b856d9d7d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePlaylist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/666b1916b87ef7013d75edcc",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"666b1916b87ef7013d75edcc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tweet",
+			"item": [
+				{
+					"name": "createTweet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Second Tweet. Hope You Will Like It",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/tweets/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserTweets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "Second Tweet. Hope You Will Like It",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/tweets/user/66211fd44c8b796f2f86a72f?page=1&limit=5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"user",
+								"66211fd44c8b796f2f86a72f"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTweet",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "This is My Second Tweet. Hope You Will Like It",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/tweets/666fd65c2d28356e4e499587",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"666fd65c2d28356e4e499587"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTweet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/tweets/666fa3afe846deada473c267",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"666fa3afe846deada473c267"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "toggleVideoLike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/toggle/v/665b48120d6042a6fbe30b13",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"toggle",
+								"v",
+								"665b48120d6042a6fbe30b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggleCommentLike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/toggle/c/6662c6b43d73a4c01e3cd75c",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"toggle",
+								"c",
+								"6662c6b43d73a4c01e3cd75c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toggleTweetLike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/toggle/t/666fd65c2d28356e4e499587",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"toggle",
+								"t",
+								"666fd65c2d28356e4e499587"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLikedVideos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/videos",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "getChannelVideos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/dashboard/videos",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getChannelStats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/dashboard/stats",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "demo2",
+			"value": "123456789"
+		}
+	]
+}
