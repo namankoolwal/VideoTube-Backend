@@ -109,7 +109,7 @@ This project uses Postman for testing its API endpoints.
 here is a postman collection import in your postman collection and set the environment variables.
 variable : 'server'  initialValue : http://localhost:8000/api/v1/  currentValue : http://localhost:8000/api/v1/
 
-import this file in postman collection.: https://drive.google.com/file/d/1RXqlxN6Z2BaJRR_qr16EKXV0IJSdVVHc/view?usp=sharing
+import this file in postman collection.: [PostMan Collection](https://github.com/namankoolwal/VideoTube-Backend/blob/main/VideoTube-Backend.postman_collection.json)
 
 The tests cover the following areas:
 
